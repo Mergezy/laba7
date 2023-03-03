@@ -70,13 +70,13 @@ public class Main{
             this.a = a;
             this.b = b;
         }
-        private static int fact(int n){
-            if (n == 0)
+        private static int fact(int i){
+            if (i == 0)
                 return 1;
             else
-                return(n * fact(n-1));
+                return(i * fact(i-1));
         }
-
+        
         public void getResult(){
             System.out.println(s1);
             if(error == 1){System.out.println("Ошибка! НА 0 ДЕЛИТЬ НЕЛЬЗЯ!\n\n");}
