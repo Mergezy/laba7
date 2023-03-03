@@ -1,38 +1,26 @@
+import java.util.Scanner;
+
 public class Main{
     public static void main(String[] arg){
-        Calc n1 = new Calc(2,5,7);
-        Calc n2 = new Calc(-8,-3,-3);
-        Calc n3 = new Calc(5,5,0);
+        Scanner input = new Scanner(System.in);
+        System.out.printf("Введите x: ");
+        int x = input.nextInt();
+        System.out.println();
+        System.out.printf("Введите a: ");
+        int a = input.nextInt();
+        System.out.println();
+        System.out.printf("Введите b: ");
+        int b = input.nextInt();
+        System.out.println();
+
+        Calc n1 = new Calc(x,a,b);
 
         n1.sum();
         n1.getResult();
 
-        n2.sum();
-        n2.getResult();
-
-        n3.sum();
-        n3.getResult();
-
         n1.division();
         n1.getResult();
 
-        n2.division();
-        n2.getResult();
-
-        n2.setNum(5,6,6);
-        n2.division();
-        n2.getResult();
-
-        n3.division();
-        n3.getResult();
-
-        n1.factorial();
-        n1.getResult();
-
-        n3.factorial();
-        n3.getResult();
-
-        n1.setNum(4,2,2);
         n1.factorial();
         n1.getResult();
     }
@@ -65,18 +53,16 @@ public class Main{
                 s1 = "y=(ax/b)!";
             }else if(b == 0) {error = 1;}
         }
-        public void setNum(int x, int a, int b){
-            this.x = x;
-            this.a = a;
-            this.b = b;
-        }
         private static int fact(int i){
             if (i == 0)
                 return 1;
             else
-                return(i * fact(i-1));
+                for (int j = 0; j <= i; j++){
+                    i *= j;
+                }
+            return i;
         }
-        
+
         public void getResult(){
             System.out.println(s1);
             if(error == 1){System.out.println("Ошибка! НА 0 ДЕЛИТЬ НЕЛЬЗЯ!\n\n");}
