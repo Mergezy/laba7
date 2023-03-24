@@ -1,74 +1,32 @@
-import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc1 = new Calculator();
+        double result1 = calc1.calculateExpression1(2.0);
 
-public class Main{
-    public static void main(String[] arg){
-        Scanner input = new Scanner(System.in);
-        System.out.printf("Введите x: ");
-        int x = input.nextInt();
-        System.out.println();
-        System.out.printf("Введите a: ");
-        int a = input.nextInt();
-        System.out.println();
-        System.out.printf("Введите b: ");
-        int b = input.nextInt();
-        System.out.println();
+        Calculator calc2 = new Calculator();
+        double result2 = calc2.calculateExpression2(3.0, 1.0);
 
-        Calc n1 = new Calc(x,a,b);
+        Calculator calc3 = new Calculator();
+        double result3 = calc3.calculateExpression3(2.0, 1.0, 4.0);
 
-        n1.sum();
-        n1.getResult();
-
-        n1.division();
-        n1.getResult();
-
-        n1.factorial();
-        n1.getResult();
+        System.out.println("Result 1: " + result1);
+        System.out.println("Result 2: " + result2);
+        System.out.println("Result 3: " + result3);
     }
-    /*
-1) y=3x+5
-2) y=(a+b)/(a-b)
-3) y=(ax/b)!
- */
-    static class Calc{
-        String s1;
-        int x, a, b, error,y;
-        public Calc(int x, int a, int b){
-            this.x = x;
-            this.a = a;
-            this.b = b;
-        }
-        public void sum(){
-            y = 3*x+5;
-            s1 = "y=3x+5";
-        }
-        public void division(){
-            if (a-b != 0) {
-                y = (a+b)/(a-b);
-                s1 = "y=(a+b)/(a-b)";
-            }else if(a-b == 0){error = 1;}
-        }
-        public void factorial(){
-            if(b != 0){
-                y = fact((a*x)/b);
-                s1 = "y=(ax/b)!";
-            }else if(b == 0) {error = 1;}
-        }
-        private static int fact(int i){
-            if (i == 0)
-                return 1;
-            else
-                for (int j = 0; j <= i; j++){
-                    i *= j;
-                }
-            return i;
+    public static class Calculator {
+        public double calculateExpression1(double x) {
+            double y = 3 * x + 5;
+            return y;
         }
 
-        public void getResult(){
-            System.out.println(s1);
-            if(error == 1){System.out.println("Ошибка! НА 0 ДЕЛИТЬ НЕЛЬЗЯ!\n\n");}
-            else {System.out.printf("X = %d, A = %d, B = %d, Y = %d \n\n",x,a,b,y);}
-            error = 0;
-            s1 = "";
+        public double calculateExpression2(double a, double b) {
+            double y = (a + b) / (a - b);
+            return y;
+        }
+
+        public double calculateExpression3(double a, double b, double x) {
+            double y = Math.pow(a * x / b, a * x / b);
+            return y;
         }
     }
 }
