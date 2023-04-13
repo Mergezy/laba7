@@ -20,11 +20,18 @@ public class Main {
         }
 
         public double calculateExpression2(double a, double b) {
-            double y = (a + b) / (a - b);
-            return y;
+            if (a-b != 0){
+                double y = (a + b) / (a - b);
+                return y;
+            } else {
+                return Double.parseDouble("Знаменатель равен нулю, деление невозможно");
+            }
         }
 
         public double calculateExpression3(double a, double b, double x) {
+            if (b == 0) {
+                return Double.parseDouble("Значение b не может быть равным нулю!");
+            }
             double y = Math.pow(a * x / b, a * x / b);
             return y;
         }
